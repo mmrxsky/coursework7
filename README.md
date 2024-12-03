@@ -1,4 +1,4 @@
-# Проект бэкенд части SPA веб-приложения треекер "Полезных привычек"
+# Проект бэкенд части SPA веб-приложения трекер "Полезных привычек"
 
 ## Для работы необходимо установить зависимости из файла [requirements.txt](https://github.com/mmrxsky/coursework7/blob/main/requirements.txt) и заполнить [.env.sample](https://github.com/mmrxsky/coursework7/blob/main/.env.sample) 
 
