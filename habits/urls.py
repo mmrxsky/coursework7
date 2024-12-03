@@ -1,7 +1,7 @@
 from rest_framework.routers import SimpleRouter
 
-from habits.views import HabitViewSet
 from habits.apps import HabitsConfig
+from habits.views import HabitViewSet
 
 app_name = HabitsConfig.name
 
