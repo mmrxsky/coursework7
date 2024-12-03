@@ -9,10 +9,13 @@ from users.permissions import IsModer, IsOwner
 
 class HabitViewSet(ModelViewSet):
     """ViewSet для управления привычками"""
+
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
     pagination_class = HabitPaginator
-    permission_classes = [AllowAny, ]
+    permission_classes = [
+        AllowAny,
+    ]
 
     def perform_create(self, serializer):
         habit = serializer.save()
@@ -20,11 +23,11 @@ class HabitViewSet(ModelViewSet):
         habit.save()
 
     def get_permissions(self):
-        if self.action == 'create':
+        if self.action == "create":
             self.permission_classes = (~IsModer,)
-        elif self.action in ['update', 'retrieve']:
+        elif self.action in ["update", "retrieve"]:
             self.permission_classes = (IsModer | IsOwner,)
-        elif self.action == 'destroy':
+        elif self.action == "destroy":
             self.permission_classes = (~IsModer | IsOwner,)
 
         return super().get_permissions()

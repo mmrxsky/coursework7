@@ -44,7 +44,6 @@ class Habit(models.Model):
         default=1,
         verbose_name="Периодичность",
         help_text="Укажите периодичность выполнения привычки для напоминания в днях (по умолчанию ежедневная)",
-
     )
     reward = models.CharField(verbose_name="Вознаграждение", **NULLABLE)
     time_to_complete = models.TimeField(
