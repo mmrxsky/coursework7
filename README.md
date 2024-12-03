@@ -1,5 +1,4 @@
 # Проект бэкенд части SPA веб-приложения треекер "Полезных привычек"
-## Для работы необходимо установить зависимости из файла requirements.txt и заполнить .env.sample 
 
 ## Для работы необходимо установить зависимости из файла [requirements.txt](https://github.com/mmrxsky/coursework7/blob/main/requirements.txt) и заполнить [.env.sample](https://github.com/mmrxsky/coursework7/blob/main/.env.sample) 
 
@@ -42,4 +41,3 @@
 ## Настроена интеграция с Telegram для уведомлений
 ## Настроен CORS
 =======
-## Для работы необходимо установить зависимости из файла requirements.txt и заполнить .env.sample 
