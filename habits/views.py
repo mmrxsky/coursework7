@@ -17,6 +17,10 @@ class HabitViewSet(ModelViewSet):
         AllowAny,
     ]
 
+    def get_queryset(self):
+        """Возвращает привычки для текущего пользователя"""
+        return Habit.objects.filter(User=self.request.user)
+
     def perform_create(self, serializer):
         habit = serializer.save()
         habit.User = self.request.user
@@ -30,4 +34,19 @@ class HabitViewSet(ModelViewSet):
         elif self.action == "destroy":
             self.permission_classes = (~IsModer | IsOwner,)
 
+        return super().get_permissions()
+
+
+class PublicHabitViewSet(ModelViewSet):
+    """ViewSet для публичных привычек"""
+
+    queryset = Habit.objects.filter(is_published=True)
+    serializer_class = HabitSerializer
+    pagination_class = HabitPaginator
+    permission_classes = [AllowAny]
+
+    def get_permissions(self):
+        """Запрещаем все действия кроме чтения для публичных привычек"""
+        if self.action not in ['list', 'retrieve']:
+            self.permission_classes = []
         return super().get_permissions()
