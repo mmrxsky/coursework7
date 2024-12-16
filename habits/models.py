@@ -54,6 +54,10 @@ class Habit(models.Model):
     is_published = models.BooleanField(
         default=True, verbose_name="Признак публичности", **NULLABLE
     )
+    last_notification = models.DateField(
+        verbose_name="Дата последнего уведомления",
+        **NULLABLE
+    )
 
     class Meta:
         verbose_name = "Привычка"
