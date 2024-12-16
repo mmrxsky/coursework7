@@ -17,6 +17,10 @@ class HabitViewSet(ModelViewSet):
         AllowAny,
     ]
 
+    def get_queryset(self):
+        """Возвращает привычки для текущего пользователя"""
+        return Habit.objects.filter(User=self.request.user)
+
     def perform_create(self, serializer):
         habit = serializer.save()
         habit.User = self.request.user
