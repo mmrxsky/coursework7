@@ -1,5 +1,6 @@
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 
 from habits.models import Habit
 from habits.paginators import HabitPaginator
@@ -37,16 +38,16 @@ class HabitViewSet(ModelViewSet):
         return super().get_permissions()
 
 
-class PublicHabitViewSet(ModelViewSet):
-    """ViewSet для публичных привычек"""
-
+class PublicHabitListView(ListAPIView):
+    """Generic view для списка публичных привычек"""
     queryset = Habit.objects.filter(is_published=True)
     serializer_class = HabitSerializer
     pagination_class = HabitPaginator
     permission_classes = [AllowAny]
 
-    def get_permissions(self):
-        """Запрещаем все действия кроме чтения для публичных привычек"""
-        if self.action not in ['list', 'retrieve']:
-            self.permission_classes = []
-        return super().get_permissions()
+
+class PublicHabitDetailView(RetrieveAPIView):
+    """Generic view для детального просмотра публичной привычки"""
+    queryset = Habit.objects.filter(is_published=True)
+    serializer_class = HabitSerializer
+    permission_classes = [AllowAny]
