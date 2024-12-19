@@ -10,6 +10,8 @@ router = SimpleRouter()
 router.register(r"", HabitViewSet)
 
 urlpatterns = [
-    path('public/', PublicHabitListView.as_view(), name='public-habits-list'),
-    path('public/<int:pk>/', PublicHabitDetailView.as_view(), name='public-habits-detail'),
+    path("public/", PublicHabitListView.as_view(), name="public-habits-list"),
+    path(
+        "public/<int:pk>/", PublicHabitDetailView.as_view(), name="public-habits-detail"
+    ),
 ] + router.urls

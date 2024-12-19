@@ -55,8 +55,7 @@ class Habit(models.Model):
         default=True, verbose_name="Признак публичности", **NULLABLE
     )
     last_notification = models.DateField(
-        verbose_name="Дата последнего уведомления",
-        **NULLABLE
+        verbose_name="Дата последнего уведомления", **NULLABLE
     )
 
     class Meta:

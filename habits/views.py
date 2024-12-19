@@ -40,6 +40,7 @@ class HabitViewSet(ModelViewSet):
 
 class PublicHabitListView(ListAPIView):
     """Generic view для списка публичных привычек"""
+
     queryset = Habit.objects.filter(is_published=True)
     serializer_class = HabitSerializer
     pagination_class = HabitPaginator
@@ -48,6 +49,7 @@ class PublicHabitListView(ListAPIView):
 
 class PublicHabitDetailView(RetrieveAPIView):
     """Generic view для детального просмотра публичной привычки"""
+
     queryset = Habit.objects.filter(is_published=True)
     serializer_class = HabitSerializer
     permission_classes = [AllowAny]

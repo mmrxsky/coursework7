@@ -13,8 +13,8 @@ app.autodiscover_tasks()
 
 # Настройка периодических задач
 app.conf.beat_schedule = {
-    'send-habit-notifications': {
-        'task': 'habits.tasks.send_notifications',
-        'schedule': crontab(minute='*'),  # Выполнять каждую минуту
+    "send-habit-notifications": {
+        "task": "habits.tasks.send_notifications",
+        "schedule": crontab(minute="*"),  # Выполнять каждую минуту
     },
 }
