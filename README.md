@@ -2,6 +2,8 @@
 
 ## Для работы необходимо установить зависимости из файла [requirements.txt](https://github.com/mmrxsky/coursework7/blob/main/requirements.txt) и заполнить [.env.sample](https://github.com/mmrxsky/coursework7/blob/main/.env.sample) 
 
+## Установка через **Docker**. Склонируйте репозиторий, заполните файл [env.sample](https://github.com/mmrxsky/coursework7/blob/main/.env.sample) и выполните команду в консоли `docker-compose up -d --build`
+
 # Структура проекта:
 ## Описаны модели для пользователей (Users),
 ### Привычка:
